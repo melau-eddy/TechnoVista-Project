@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your Software Engineering Company offers custom web development, software solutions, and UI/UX design. Let's build something amazing together.">
+  <title>Technovista Online Reservation System</title>
+  <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="#" class="logo">Your Logo</a>
+      <nav>
+        <ul>
+          <li><a href="Amenities.html">Amenities</a></li>
+          <li><a href="Rooms&Rates.html">Rooms & Rates</a></li>
+          <li><a href="Gallery.html">Gallery</a></li>
+          <li><a href="Visit.html">Visit</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="Book.html">Book a Room</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero" style="background-image: url('images/pexels-pixabay-271624.jpg');"> <!-- Adjust image path -->
+        <h1>Welcome to Pelican Lodge</h1>
+        <a href="#book" class="button">Book a Room</a>
+    </div>
+    
+    <!-- Rooms & Rates Section -->
+    <section class="content">
+        <div class="section">
+            <img src="images/pexels-keeganjchecks-30370492.jpg" alt="Room & Rates"> <!-- Replace with actual image -->
+            <h2>Rooms & Rates</h2>
+            <p>Each of our rooms is uniquely designed and features works by local artists.</p>
+            <a href="#rooms" class="button">Learn More</a>
+        </div>
+        <div class="section">
+            <img src="images/pexels-babix-7391720.jpg" alt="Amenities"> <!-- Replace with actual image -->
+            <h2>Amenities</h2>
+            <p>Guests can enjoy a farm-to-table restaurant, conference facilities, swimming pool, manicured grounds & much more.</p>
+            <a href="#amenities" class="button">Learn More</a>
+           
+        </div>
+      <p class="set">Set on Ten acres along the beautiful Nakuru County, the hotel is nestled on the shores of Lake Elementaita. </p>
+    </section>
+    
+    <!-- Hero Section for Booking with Beautiful View -->
+    <div class="hero1" style="background-image: url('images/pexels-mographe-15531325.jpg');"> <!-- Replace with actual image -->
+        <h1>Book a Room</h1>
+        <a href="#book" class="button">Book Now</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <!-- Footer Message Section -->
+      <div class="footer-message">
+        <h3>Send Us a Quick Message</h3>
+        <form action="process_footer_form.php" method="post">
+          <input type="text" name="name" placeholder="Your Name" required minlength="2">
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Footer Links and Social Icons -->
+      <div class="footer-links">
+        <a href="#">Home</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#why-choose-us">Why Choose Us</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="social-icons">
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">LinkedIn</a>
+      </div>
+      <p>&copy; 2024 Algoverse Software Engineering Company. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, { threshold: 0.5 });
+
+      const sections = document.querySelectorAll("section");
+      sections.forEach((section) => observer.observe(section));
+    });
+  </script>
+</body>
+</html>
