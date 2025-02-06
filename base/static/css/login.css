@@ -1,0 +1,93 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* White background */
+    color: black;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 30px 0; /* Reduced space above and below header */
+}
+
+.header h1 {
+    font-size: 28px;
+    color: black;
+    display: inline-flex;
+    align-items: center;
+}
+
+.header img {
+    margin-right: 10px; /* Space between icon and title */
+    width: 40px;
+    height: 40px;
+}
+
+/* Form Container */
+.form-container {
+    background-color: white;
+    width: 400px; /* Uniform width */
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    font-size: 22px;
+    color: black;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+input {
+    width: calc(100% - 22px); /* Adjust width to match button */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+/* Buttons */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #00c853;
+    color: white;
+    font-size: 14px;
+    width: 100%; /* Full width */
+    margin-top: 10px; /* Space above button */
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #009624; /* Darker green on hover */
+}
+
+.link {
+    display: flex;
+    justify-content: space-between; /* Space links on opposite sides */
+    margin-top: 15px; /* Space above links */
+    font-size: 14px;
+}
+
+.link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.link a:hover {
+    text-decoration: underline;
+}

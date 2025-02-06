@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Your Software Engineering Company offers custom web development, software solutions, and UI/UX design. Let's build something amazing together.">
   <title>Technovista Online Reservation System</title>
-  <link rel="stylesheet" href="style.css"> 
+  <link rel="stylesheet" href="{% static 'css/style.css'%}"> 
 </head>
 <body>
   <header>
@@ -19,13 +20,16 @@
           <li><a href="Visit.html">Visit</a></li>
           <li><a href="Contact.html">Contact</a></li>
           <li><a href="Book.html">Book a Room</a></li>
+          <li><a href="{% url 'logout_view' %}">Logout</a></li>
+          <li><a href="Book.html">Register</a></li>
+
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <div class="hero" style="background-image: url('images/pexels-pixabay-271624.jpg');"> <!-- Adjust image path -->
+    <div class="hero" style="background-image: url({% static 'images/pexels-pixabay-271624.jpg' %});"> <!-- Adjust image path -->
         <h1>Welcome to Pelican Lodge</h1>
         <a href="#book" class="button">Book a Room</a>
     </div>
@@ -33,13 +37,13 @@
     <!-- Rooms & Rates Section -->
     <section class="content">
         <div class="section">
-            <img src="images/pexels-keeganjchecks-30370492.jpg" alt="Room & Rates"> <!-- Replace with actual image -->
+            <img src="{% static 'images/pexels-keeganjchecks-30370492.jpg' %}" alt="Room & Rates"> <!-- Replace with actual image -->
             <h2>Rooms & Rates</h2>
             <p>Each of our rooms is uniquely designed and features works by local artists.</p>
             <a href="#rooms" class="button">Learn More</a>
         </div>
         <div class="section">
-            <img src="images/pexels-babix-7391720.jpg" alt="Amenities"> <!-- Replace with actual image -->
+            <img src="{% static 'images/pexels-babix-7391720.jpg' %}" alt="Amenities"> <!-- Replace with actual image -->
             <h2>Amenities</h2>
             <p>Guests can enjoy a farm-to-table restaurant, conference facilities, swimming pool, manicured grounds & much more.</p>
             <a href="#amenities" class="button">Learn More</a>
@@ -49,7 +53,7 @@
     </section>
     
     <!-- Hero Section for Booking with Beautiful View -->
-    <div class="hero1" style="background-image: url('images/pexels-mographe-15531325.jpg');"> <!-- Replace with actual image -->
+    <div class="hero1" style="background-image: url({% static 'images/pexels-mographe-15531325.jpg' %});"> <!-- Replace with actual image -->
         <h1>Book a Room</h1>
         <a href="#book" class="button">Book Now</a>
     </div>

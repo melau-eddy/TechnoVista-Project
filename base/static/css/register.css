@@ -1,0 +1,84 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: black;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 15px; /* Reduced padding */
+}
+
+.header h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    font-size: 24px;
+    color: black;
+}
+
+.header h1 img {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+/* Form Container */
+.form-container {
+    background-color: white;
+    width: 500px;
+    margin: 30px auto; /* Reduced margin */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    font-size: 22px;
+    color: black;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+input {
+    width: calc(100% - 20px); /* Adjusted width for uniformity */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #00c853;
+    color: white;
+    font-size: 14px;
+    width: 100%; /* Full width to match input fields */
+}
+
+/* Links */
+.links {
+    display: flex;
+    justify-content: center; /* Centered links */
+    margin-top: 15px;
+}
+
+.links a {
+    color: #00c853;
+    text-decoration: none;
+    font-size: 14px;
+}
