@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     if not request.user.is_authenticated:
         return redirect('login_view')
-    return render(request, 'base/index.html')
+    return render(request, 'base/index.html', {'user': request.user})
 
 def login_view(request):
     if request.method == "POST":
