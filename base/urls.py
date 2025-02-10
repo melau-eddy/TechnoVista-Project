@@ -1,9 +1,16 @@
 from django.urls import path
 from . import views
+from .views import stk_push
+
 
 urlpatterns = [
-    path('home/', views.home, name='home'),
-    path('', views.login_view, name='login_view'),
+    path('', views.home, name='home'),
+    path('login/', views.login_view, name='login_view'),
     path('register/', views.register, name='register'),
     path('logout/', views.logout_view, name='logout_view'),
+    path('book/', views.book, name='book'),
+    path('amenities/', views.amenities, name='amenities'),
+    path('rates/', views.rates, name='rates'),
+    path('contact/', views.contact, name='contact'),   
+    path("stkpush/",stk_push, name="stkpush"),
 ]

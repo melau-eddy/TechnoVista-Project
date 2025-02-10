@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M-Pesa STK Push</title>
+    <link rel="stylesheet" href="{%  'static/style.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <h2 class="text-center my-5">M-Pesa STK Push</h2>
+    <form id="stkPushForm">
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="phone" name="phone" required placeholder="e.g. 0712345678">
+        </div>
+        
+        <div class="mb-3">
+            <label for="amount" class="form-label">Amount</label>
+            <input type="number" class="form-control" id="amount" name="amount" required placeholder="e.g. 100">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Make Payment</button>
+    </form>
+
+    <div id="responseMessage" class="mt-4"></div>
+</div>
+
+<script>
+    document.getElementById('stkPushForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Get the form data
+        const phone = document.getElementById('phone').value;
+        const amount = document.getElementById('amount').value;
+
+        const requestData = {
+            phone: phone,
+            amount: amount
+        };
+
+        // Send POST request to the Flask API
+        fetch('http://127.0.0.1:5001/stkpush', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            let message = "Payment request sent successfully!";
+            if (data.success === false) {
+                message = alert(`${data.message}`);
+            }
+            document.getElementById('responseMessage').innerHTML = message;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('responseMessage').innerHTML = '<div class="alert alert-danger">An error occurred while processing your request. Please try again.</div>';
+        });
+    });
+</script>
+
+</body>
+</html>

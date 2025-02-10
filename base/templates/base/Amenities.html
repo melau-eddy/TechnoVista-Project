@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Technovista Online Hotel Kenya offers online reservation services, Book a room with Us.">
-  <title>Technovista Online Reservation System</title>
-  <link rel="stylesheet" href="style.css"> 
-</head>
-<body>
+{% extends 'base/index.html' %}
+{% load static %}
+{% block content %}
     <main>
         <div class="container">
             <h2>Amenities</h2>
@@ -77,5 +70,5 @@
             </div>
         </div>
     </footer>
-</body>
-</html>
+{% endblock %}
+

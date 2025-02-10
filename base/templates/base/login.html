@@ -1,34 +1,31 @@
+{% extends 'base/index.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+{% block content %}
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
-</head>
-<body>
-    <!-- Header with TaskMaster -->
+
     <div class="header">
         <h1>TechnoVista</h1>
     </div>
 
-    <!-- Login Form -->
     <div class="form-container">
-        {% if messages %}
-            {% for message in messages %}
-                <p style="color:rgb(47, 255, 57);">{{ message }}</p>
-            {% endfor %}
-        {% endif %}
         <h2>Login</h2>
         <form action="" method="POST">
+            {% if messages %}
+                {% for message in messages %}
+                    <div style="background-color: rgb(80, 180, 247);
+                        padding: 10px;
+                        border-radius: 10px;
+                        margin: 10px;">
+                    {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
             {% csrf_token %}
             <label for="username">Username</label>
-            <input type="text" id="username" placeholder="Enter username" name="username">
+            <input type="text" id="username" name="username" placeholder="Enter username">
 
             <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Enter password" name="password">
-
+            <input type="password" id="password" name="password" placeholder="Enter password">
             <button type="submit">Login</button>
 
             <div class="link">
@@ -37,5 +34,4 @@
             </div>
         </form>
     </div>
-</body>
-</html>
+{% endblock %}

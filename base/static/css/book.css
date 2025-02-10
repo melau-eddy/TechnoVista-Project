@@ -1,0 +1,414 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: black;
+}
+
+/* Dark Mode Styling */
+body.dark-mode {
+    background-color: #00c853; /* Green background in dark mode */
+    color: white;
+}
+
+body.dark-mode .header {
+    background-color: #1e1e1e;
+    color: green;
+}
+
+body.dark-mode .header .taskmaster-text {
+    color: green;
+}
+
+body.dark-mode .form-container {
+    background-color: #333;
+    color: white;
+    border: none; /* Remove border in dark mode */
+}
+
+body.dark-mode .sidebar {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .sidebar a {
+    color: #00e676;
+}
+
+body.dark-mode .sidebar a i {
+    color: #00e676;
+}
+
+body.dark-mode .sidebar a:hover i {
+    color: white;
+}
+
+body.dark-mode .sidebar a:hover {
+    color: green;
+}
+
+body.dark-mode button {
+    background-color: #00e676;
+    color: black;
+}
+
+body.dark-mode button.cancel {
+    background-color: #f44336;
+}
+
+/* Light Mode Borders */
+body:not(.dark-mode) .form-container {
+    border: 2px solid green; /* Green border */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 128, 0, 0.5); /* Shadow effect */
+}
+
+body:not(.dark-mode) .header {
+    border-bottom: 2px solid green; /* Green border bottom */
+    box-shadow: 0 4px 10px rgba(0, 128, 0, 0.5); /* Shadow effect */
+}
+
+body:not(.dark-mode) .sidebar {
+    border-left: 2px solid green; /* Green left border */
+}
+
+input,
+textarea,
+select {
+    width: calc(100% - 20px); /* Subtract padding */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    margin-right: 15px; /* Equal right margin */
+    display: inline-block; /* Allow calendar icon to be inline */
+    box-shadow: 0 2px 5px rgba(0, 128, 0, 0.3); /* Shadow effect */
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #aaa; /* Placeholder color */
+}
+
+/* Header */
+.header {
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: 24px;
+    color: black;
+}
+
+/* Sidebar */
+.sidebar {
+    height: 100%;
+    width: 80px; /* Partially collapsed width */
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+    transition: width 0.5s; /* Smooth transition for width */
+    padding-top: 70px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure sidebar is on top */
+}
+
+.sidebar.expanded {
+    width: 250px; /* Expanded width */
+}
+
+.sidebar a {
+    padding: 10px 25px; /* Increased top and bottom padding for more line spacing */
+    text-decoration: none;
+    font-size: 18px;
+    color: green; /* Change icon color to green */
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+    font-weight: 100;
+    margin: 5px 0;
+}
+
+.sidebar a:hover {
+    background-color: #00c853;
+}
+
+.sidebar a i {
+    margin-right: 15px;
+    font-size: 18px;
+    color: green; /* Change icon color to green */
+}
+
+.sidebar a:hover i {
+    color: white;
+}
+
+/* Close Button */
+.sidebar .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px; /* Same size as hamburger icon */
+    color: black;
+    cursor: pointer;
+    display: none; /* Hide initially */
+}
+
+/* Hamburger Icon */
+.open-btn {
+    font-size: 25px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: black;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 1001; /* Ensure button is on top */
+    margin-bottom: 20px; /* Increased margin below the hamburger icon */
+}
+
+/* Hide/show icons and text */
+.sidebar a span {
+    display: none;
+}
+
+.sidebar.expanded a span {
+    display: inline; /* Show text in expanded mode */
+}
+
+/* Form Container */
+.form-container {
+    background-color: white;
+    width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    font-size: 22px;
+    color: black; /* Default color */
+}
+
+body.dark-mode h2 {
+    color: white; /* Change color in dark mode */
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+input,
+textarea,
+select {
+    width: calc(100% - 20px); /* Subtract padding */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    margin-right: 15px; /* Equal right margin */
+    display: inline-block; /* Allow calendar icon to be inline */
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #aaa; /* Placeholder color */
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    margin-top: 10px; /* Add margin above buttons */
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #00c853;
+    color: white;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    margin-left: 10px; /* Spacing between buttons */
+    flex: 1; /* Make buttons equal size */
+}
+
+
+
+.cancel {
+    background-color: #d32f2f;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #00c853;
+    color: white;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    margin-left: 10px; /* Spacing between buttons */
+    flex: 1; /* Make buttons equal size */
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: #008c4f;
+}
+
+a.cancel:hover {
+    background-color: #b22222;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align items to start */
+}
+
+.toggle-container label {
+    margin-bottom: 0;
+    margin-right: 10px; /* Margin between label and switch */
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.toggle-switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #00c853;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* Circle at the bottom left */
+.circle-center {
+    width: 700px; /* Diameter of the circle */
+    height: 400px;
+    background-color: rgb(0, 170, 0);
+    border-radius: 50%; /* Makes the shape a circle */
+    position: fixed; /* Stays fixed at the bottom left */
+    top: -17%; /* 20px from the bottom */
+    left: 2%; /* 20px from the left */
+    z-index: -1; /* Ensures the circle appears on top */
+}
+
+/* Circle at the bottom left */
+.circle-bottom-left {
+    width: 700px; /* Diameter of the circle */
+    height: 400px;
+    background-color: rgb(0, 170, 0);
+    border-radius: 50%; /* Makes the shape a circle */
+    position: fixed; /* Stays fixed at the bottom left */
+    bottom: -17%; /* 20px from the bottom */
+    right: 2%; /* 20px from the left */
+    z-index: -1; /* Ensures the circle appears on top */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .form-container {
+        width: 70%; /* Full width for smaller screens */
+        padding: 10px; /* Less padding on small screens */
+        margin-top: 20px; /* Add space above the form container */
+        margin-right: 100px;
+        
+    }
+
+    .sidebar {
+        width: 60px; /* Adjust sidebar width */
+        
+    }
+    .open-btn{
+        font-size: 20px;
+        right: 5px;
+    }
+
+    .sidebar.expanded {
+       width: 200px;  /* Adjust expanded width */
+    }
+    
+
+    .header h1 {
+        font-size: 20px; /* Smaller font size for header */
+        
+    }
+
+    
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        width: 50%;
+        margin-top: 30px; /* Add more space above on very small screens */
+    }
+
+
+    .sidebar.expanded {
+        width: 180px;/* Adjust expanded width for mobile */
+    }
+
+    .header h1 {
+        font-size: 18px; /* Smaller font size for header */
+    }
+
+
+
+    .toggle-switch {
+        width: 30px; /* Smaller switch */
+        height: 15px; /* Smaller switch height */
+    }
+
+    .toggle-switch .slider:before {
+        height: 12px; /* Smaller switch circle */
+        width: 12px; /* Smaller switch circle */
+    }
+}
