@@ -1,0 +1,29 @@
+
+.service-company{
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+    .service-info{
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+    }
+    .service-info-2{
+        display: flex;
+        gap:30px;
+        flex-direction: row;
+    }
+    img{
+        width: 600px;
+        height: 400px;
+        object-fit: cover;
+    }
+    .img-service{
+        background-color: rgb(200, 200, 200);
+        padding: 10px;
+    }
+}
+
+
+
+

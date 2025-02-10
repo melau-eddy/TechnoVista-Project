@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 from .views import stk_push
+from .views import message_mail
 
 
 urlpatterns = [
@@ -13,4 +14,6 @@ urlpatterns = [
     path('rates/', views.rates, name='rates'),
     path('contact/', views.contact, name='contact'),   
     path("stkpush/",stk_push, name="stkpush"),
+    path("message/",message_mail, name="message_mail"),
+    path("gallery/",views.gallery, name="gallery")
 ]

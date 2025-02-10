@@ -9,6 +9,8 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 
+from django.core.mail import send_mail
+
 # Home View
 def home(request):
     return render(request, 'base/home.html', {'user': request.user})
@@ -94,22 +96,6 @@ def logout_view(request):
     return redirect('login_view')
 
 
-# timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
-
-# def get_mpesa_token():
-#     consumer_key = "UCOLz4IHesReIjmyWswYALA5UWAtlPzKfLZk6H9TSAY0bjIg"
-#     consumer_secret = "ACbpFsQMikEdGwBIwQX7EglxHsBj26GJJmde42pvMzP2NIaYyHGcp5RK79OuHAMQ"
-#     api_URL = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
-    
-#     try:
-#         r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
-#         r.raise_for_status()
-#         response_data = r.json()
-#         return response_data.get('access_token')
-#     except requests.exceptions.RequestException as e:
-#         return None
-
-
 
 @csrf_exempt  # Disable CSRF for API calls (consider security in production)
 def stk_push(request):
@@ -136,3 +122,16 @@ def stk_push(request):
             return JsonResponse({"success": False, "message": f"Error: {str(e)}"}, status=500)
 
     return JsonResponse({"success": False, "message": "Only POST requests allowed"}, status=405)
+
+
+def message_mail(request):
+    send_mail(
+        subject='hello world',
+        message='django smtp email',
+        from_email='hello@demomailtrap.com',
+        recipient_list=['geniusokwemba53@gmail.com']
+    )
+    messages.success(request, "Email sent succefully.")
+
+def gallery(request):
+    return render(request, 'base/gallery.html')

@@ -44,9 +44,7 @@ INSTALLED_APPS = [
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:8000"]
-CSRF_COOKIE_SECURE = False
-CSRF_COOKIE_HTTPONLY = False
+
 
 
 MIDDLEWARE = [
@@ -59,7 +57,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
 ]
-MIDDLEWARE.remove('django.middleware.csrf.CsrfViewMiddleware')
 
 
 ROOT_URLCONF = 'technovista.urls'
@@ -142,3 +139,13 @@ MESSAGE_TAGS = {
 }
 
 LOGOUT_REDIRECT_URL = 'login_view'
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "live.smtp.mailtrap.io"  # SMTP server for Gmail
+EMAIL_PORT = 587  # TLS port
+EMAIL_USE_TLS = True  # Use TLS for security
+EMAIL_USE_SSL = False  # Don't use SSL (only one of TLS or SSL should be True)
+EMAIL_HOST_USER = "hello@demomailtrap.com"  # Your email address
+EMAIL_HOST_PASSWORD = "bff7a063c33136b1d2e7e6bbf996e9f8"  # Use an App Password if using Gmail
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
