@@ -8,6 +8,7 @@ import requests
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
+from .models import Room
 
 from django.core.mail import send_mail
 
@@ -72,7 +73,7 @@ def book(request):
             reservation.user = request.user  # Associate the reservation with the logged-in user
             reservation.save()
             messages.success(request, f"Reservation for {reservation.name} has been submitted successfully!")
-            return redirect('book')  # Redirect back to the booking page or another page
+            return redirect('rates')  # Redirect back to the booking page or another page
         else:
             messages.error(request, "There was an error in your reservation form.")
     else:
@@ -135,3 +136,11 @@ def message_mail(request):
 
 def gallery(request):
     return render(request, 'base/gallery.html')
+
+def rooms(request):
+    rooms = Room.objects.all()
+    context = {'rooms':rooms}
+    return render(request, 'base/rooms.html', context)
+
+def visit(request):
+    return render(request, 'base/visit.html')

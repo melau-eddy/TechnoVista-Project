@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 from django.contrib.messages import constants as messages
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,13 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'base.apps.BaseConfig',
-    'crispy_forms',
-    'crispy_bootstrap4',
     'rest_framework',
     'corsheaders',
 ]
-
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 
@@ -127,6 +124,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'base/static/images')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -149,3 +148,6 @@ EMAIL_HOST_USER = "hello@demomailtrap.com"  # Your email address
 EMAIL_HOST_PASSWORD = "bff7a063c33136b1d2e7e6bbf996e9f8"  # Use an App Password if using Gmail
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
+
+
+MEDIA_URL = '/images/'

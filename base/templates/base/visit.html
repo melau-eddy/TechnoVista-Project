@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit Us - Technovista</title>
+    <link rel="stylesheet" href="{% static 'css/visit.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+          <a href="{% url 'home' %}" class="logo">
+            <img src="{% static 'images/logo.png' %}" alt="Pelican Lodge Logo">
+          </a>
+          <nav>
+            <ul>
+                <li><a href="{% url 'amenities' %}">Amenities</a></li>
+                <li><a href="{% url 'rooms' %}">Rooms and Rates</a></li>
+                <li><a href="{% url 'rates' %}">Make payments</a></li>
+                <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'visit' %}">visit</a></li>
+                <li><a href="{% url 'book' %}"  class="book-btn">Book a Room</a></li>
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'logout_view' %}" class="log">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login_view' %}" class="log">Login</a></li>
+                {% endif %}
+            </ul>
+          </nav>
+        </div>
+      </header>
+    
+    <div class="main-content">
+        <div class="container">
+            <!-- Visit Us Heading -->
+            <h2>Visit Us</h2>
+
+            <!-- Google Maps Embed -->
+            <div class="iframe-cont">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.14748891423!2d36.946003649999996!3d-0.41982460000000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18285f4c5c3c4a0d%3A0xa8d02f38a3ecf8d7!2sNyeri%2C%20Kenya!5e0!3m2!1sen!2s!4v1707203456789" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+
+                <!-- Contacts Section -->
+                <div class="contacts">
+                    <h3>Contact Information</h3>
+                    <p><strong>Address:</strong> Kimathi, Nyeri County</p>
+                    <p><strong>Hours:</strong> Open Daily</p>
+                    <p><strong>Phone:</strong></p>
+                    <p>+254 793 814 776</p>
+                    <p>+254 750 391 304</p>
+                    <p>+254 719 578 313</p>
+                    <p>+254 718 050 367</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: Technovista@gmail.com</p>
+                <p>Phone: +254 123 456 789</p>
+                <p>Address: Glee Hotel, Nairobi, Kenya</p>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Amenities</a></li>
+                    <li><a href="#">Rooms and Rates</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Visit</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Book a Room</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">Facebook</a>
+                    <a href="#" class="social-icon">Twitter</a>
+                    <a href="#" class="social-icon">Instagram</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>&copy; 2025 . Powered by Technovista Hotel Reservation System.</p>
+        </div>
+      </footer>
+</body>
+</html>

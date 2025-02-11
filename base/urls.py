@@ -15,5 +15,7 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),   
     path("stkpush/",stk_push, name="stkpush"),
     path("message/",message_mail, name="message_mail"),
-    path("gallery/",views.gallery, name="gallery")
+    path("gallery/",views.gallery, name="gallery"),
+    path("rooms/",views.rooms, name="rooms"),
+    path("visit/",views.visit, name="visit")
 ]

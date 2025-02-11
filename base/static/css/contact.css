@@ -1,0 +1,81 @@
+.head {
+    text-align: center;
+    background: linear-gradient(to right, rgb(222, 209, 209), rgb(14, 13, 14));
+    color: white;
+    padding: 50px 0;
+}
+
+.head h1 {
+    margin-bottom: 10px;
+    font-size: 36px;
+}
+
+.head p {
+    font-size: 18px;
+    margin: 0;
+}
+
+.box {
+    background-color: lavender;
+    width: 50%;
+    margin: 30px auto;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+span {
+    color: rgb(82, 80, 80);
+    font-size: 14px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    padding: 12px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: #2980b9;
+}
+
+input[type="submit"]:focus,
+input[type="reset"]:focus {
+    outline: none;
+}

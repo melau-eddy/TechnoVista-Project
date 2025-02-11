@@ -1,0 +1,60 @@
+.payments{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(200, 200, 236);
+    align-items: center;
+    justify-content: center;
+    max-width: fit-content;
+    padding: 50px;
+    border-radius: 10px;
+    gap: 30px;
+    input{
+        width: 500px;
+        padding: 15px;
+        border-radius: 10px;
+        border: none;
+    }
+    h2{
+        border-bottom: 2px solid rgb(0, 119, 255);
+        padding: 20px;
+        width: 100%;
+    }
+
+}
+
+.main-pay{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+}
+.phone{
+    display: flex;
+    flex-direction: column;
+}
+.amount{
+    display: flex;
+    flex-direction: column;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.pay-btn{
+    background-color: rgba(71, 186, 252, 0.699);
+    border: none;
+    padding: 10px;
+    width: 50%;
+    border-radius: 10px;
+    color: aliceblue;
+    cursor: pointer;
+    font-size: 17px;
+}
+.pay-btn:hover{
+    color: black;
+    background-color: rgb(71, 186, 252);
+}
