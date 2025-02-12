@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Reserve, Room
+from .models import Reserve, Room,Contact
 
-# Register your models here.
 admin.site.register(Reserve)
 admin.site.register(Room)
+admin.site.register(Contact)

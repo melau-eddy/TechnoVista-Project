@@ -37,7 +37,7 @@
         </div>
     </header>
     <!-- Hero Section -->
-    <header class="hero-section">
+    <header class="hero-section" style="background-image: url({% static 'images/pexels-pixabay-271624.jpg' %});">
         <div class="hero-content">
             {% if messages %}
                 {% for message in messages %}
@@ -131,7 +131,7 @@
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="#">Amenities</a></li>
+                    <li><a href="{% url 'amenities' %}">Amenities</a></li>
                     <li><a href="#">Rooms and Rates</a></li>
                     <li><a href="#">Gallery</a></li>
                     <li><a href="#">Visit</a></li>
@@ -154,9 +154,6 @@
             <p>&copy; 2025 . Powered by Technovista Hotel Reservation System.</p>
         </div>
       </footer>
-
-    <!-- JavaScript -->
-    <script src="scripts.js"></script>
 
 </body>
 </html>

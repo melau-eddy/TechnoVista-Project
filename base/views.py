@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from .forms import ReserveForm
+from .forms import ReserveForm, ContactForm
 import requests
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -111,9 +111,7 @@ def rates(request, reserve_id=None):
 
 
 
-# Contact View
-def contact(request):
-    return render(request, 'base/contact.html')
+
 
 # Logout View
 def logout_view(request):
@@ -169,3 +167,19 @@ def rooms(request):
 
 def visit(request):
     return render(request, 'base/visit.html')
+
+def contact(request):
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            contact = form.save(commit=False)
+            contact.user = request.user  
+            contact.save()
+            messages.success(request, f"Message has been submitted successfully!")
+            return redirect('contact')  
+        else:
+            messages.error(request, f"Error sending message: {form.errors}")
+    else:
+        form = ContactForm()
+
+    return render(request, 'base/contact.html', {'form': form})

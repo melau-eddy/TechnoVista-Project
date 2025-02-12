@@ -40,3 +40,13 @@ class Reserve(models.Model):
 
 class Contact(models.Model):
     first_name = models.CharField(null=True, blank=True, max_length=200)
+    last_name = models.CharField(null=True, blank=True, max_length=200)
+    email = models.EmailField(null=True,blank=True)
+    subject=models.CharField(null=True, blank=True, max_length=200)
+    message = models.TextField(null=True)
+    date = models.DateField(default=timezone.now)
+    phone = models.CharField(null=True, blank=True ,max_length=200)
+    
+
+
+
