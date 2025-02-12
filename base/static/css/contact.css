@@ -79,3 +79,16 @@ input[type="submit"]:focus,
 input[type="reset"]:focus {
     outline: none;
 }
+/* 
+input {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #00c853;
+    color: white;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    margin-left: 10px; 
+    flex: 1; 
+} */

@@ -38,3 +38,5 @@ class Reserve(models.Model):
         return f"Reservation by {self.name} for {self.arrival_date}"
 
 
+class Contact(models.Model):
+    first_name = models.CharField(null=True, blank=True, max_length=200)

@@ -29,13 +29,14 @@
                 
                 <button type="submit" class="pay-btn">Make Payment</button>
             </form>
-            <div class="rates-summary">
-                <h3>Room Name: <span>{{ reserves.room.room_name }}</span></h3>
-                <h3>clients Accomodated: <span>{{ reserves.population }}</span></h3>
-                <h3>Total Payable: <span>{{ total_price }}</span></h3>
-            </div>
+            
         </div>
-        
+        <div class="rates-summary">
+            <p><i>summary</i></p>
+            <h3><i>Room Name</i>: <span>{{ reserves.room.room_name }}</span></h3>
+            <h3><i>clients Accomodated</i>: <span>{{ reserves.population }}</span></h3>
+            <h3><i>Total Payable</i>: <span>{{ total_price }}</span></h3>
+        </div>
     </div>
     
 
