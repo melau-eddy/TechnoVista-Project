@@ -3,6 +3,16 @@
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/rates.css' %}">
     <div class="main-pay">
+        {% if messages %}
+            {% for message in messages %}
+                <div style="background-color: rgb(80, 180, 247);
+                    padding: 10px;
+                    border-radius: 10px;
+                    margin: 10px;">
+                {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
         <div class="payments">
             <h2>Make payments</h2>
             <form id="stkPushForm">
@@ -19,8 +29,13 @@
                 
                 <button type="submit" class="pay-btn">Make Payment</button>
             </form>
-    
+            <div class="rates-summary">
+                <h3>Room Name: <span>{{ reserves.room.room_name }}</span></h3>
+                <h3>clients Accomodated: <span>{{ reserves.population }}</span></h3>
+                <h3>Total Payable: <span>{{ total_price }}</span></h3>
+            </div>
         </div>
+        
     </div>
     
 
@@ -64,41 +79,6 @@
 
 
 
-
-
-
-
-
-
-
-        // document.addEventListener("DOMContentLoaded", function () {
-        //     document.querySelectorAll(".book-now").forEach(button => {
-        //         button.addEventListener("click", function (event) {
-        //             event.preventDefault();
-
-        //             const price = this.getAttribute("data-price");  // Get room price
-        //             const phone = prompt("Enter your phone number:");
-
-        //             if (phone) {
-        //                 fetch("{% url 'stk_push' %}", {
-        //                     method: "POST",
-        //                     headers: {
-        //                         "Content-Type": "application/json",
-        //                         "X-CSRFToken": "{{ csrf_token }}"
-        //                     },
-        //                     body: JSON.stringify({ phone: phone, amount: price })
-        //                 })
-        //                 .then(response => response.json())
-        //                 .then(data => {
-        //                     alert(data.message);
-        //                 })
-        //                 .catch(error => {
-        //                     console.error("Error:", error);
-        //                 });
-        //             }
-        //         });
-        //     });
-        // });
     </script>
 
 

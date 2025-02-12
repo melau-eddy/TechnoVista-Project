@@ -9,7 +9,7 @@
     <!-- Create Task Form Container -->
         <div class="form-container">
             <h2>Make Reservations</h2>
-            <form id="createTaskForm" method="POST" action="{% url 'book' %}">
+            <form id="createTaskForm" method="POST"">
                 {% if messages %}
                 {% for message in messages %}
                     <div style="background-color: rgb(80, 180, 247);
@@ -19,7 +19,7 @@
                     {{ message }}
                     </div>
                 {% endfor %}
-            {% endif %}
+                {% endif %}
                 {% csrf_token %}
                 
                 <label for="name">Name</label>

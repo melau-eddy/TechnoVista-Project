@@ -8,13 +8,15 @@ import requests
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
-from .models import Room
+from .models import Room, Reserve
 
 from django.core.mail import send_mail
 
 # Home View
 def home(request):
-    return render(request, 'base/home.html', {'user': request.user})
+    context = {'user': request.user, 'reserve_id': None, 'room_id':None}  # Ensure reserve_id exists
+    return render(request, 'base/home.html', context)
+
 
 # Login View
 def login_view(request):
@@ -26,7 +28,10 @@ def login_view(request):
         if user:
             login(request, user)
             messages.success(request, 'Login successful')
-            return redirect('book')
+            room_id = request.GET.get("room_id")  
+            if room_id:
+                return redirect('book', room_id=room.id)
+            return redirect('/')
         else:
             messages.error(request, 'Invalid username or password')
 
@@ -65,15 +70,17 @@ def amenities(request):
     return render(request, 'base/Amenities.html')
 
 @login_required(login_url='login_view')
-def book(request):
+def book(request, room_id):
+    room = Room.objects.get(id=room_id)
     if request.method == "POST":
         form = ReserveForm(request.POST)
         if form.is_valid():
-            reservation = form.save(commit=False)
-            reservation.user = request.user  # Associate the reservation with the logged-in user
-            reservation.save()
-            messages.success(request, f"Reservation for {reservation.name} has been submitted successfully!")
-            return redirect('rates')  # Redirect back to the booking page or another page
+            reserve = form.save(commit=False)
+            reserve.user = request.user  
+            reserve.room = room
+            reserve.save()
+            messages.success(request, f"Reservation for {reserve.name} has been submitted successfully!")
+            return redirect('rates', reserve_id=reserve.id)  
         else:
             messages.error(request, "There was an error in your reservation form.")
     else:
@@ -82,9 +89,27 @@ def book(request):
     return render(request, 'base/book.html', {'form': form})
 
 
-# Rates View
-def rates(request):
-    return render(request, 'base/rates.html')
+def rates(request, reserve_id):
+    if reserve_id is None:
+        messages.error('please choose a room before you navigate to rates')
+        return redirect('rooms')
+    reserves = Reserve.objects.get(id=reserve_id)
+    total_price = reserves.population * reserves.room.price
+    return render(request, 'base/rates.html', {'reserves': reserves, 'total_price': total_price})
+
+
+def rates(request, reserve_id=None):
+    if reserve_id is None:
+        messages.error(request, 'Please choose a room before navigating to rates.')
+        return redirect('rooms')  
+    reserves = get_object_or_404(Reserve, id=reserve_id)
+
+    total_price = reserves.population * reserves.room.price if reserves.room else 0
+
+    return render(request, 'base/rates.html', {'reserves': reserves, 'total_price': total_price})
+
+
+
 
 # Contact View
 def contact(request):

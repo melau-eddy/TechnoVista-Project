@@ -18,11 +18,15 @@
         <ul>
           <li><a href="{% url 'amenities' %}">Amenities</a></li>
           <li><a href="{% url 'rooms' %}">Rooms and Rates</a></li>
-          <li><a href="{% url 'rates' %}">Make payments</a></li>
+          {% if reserve_id %}
+            <li><a href="{% url 'rates' reserve_id %}">Check Rates</a></li>
+          {% else %}
+            <li><a href="{% url 'rates_no_id' %}">Check Rates</a></li>
+          {% endif %}
           <li><a href="{% url 'gallery' %}">Gallery</a></li>
           <li><a href="{% url 'contact' %}">Contact</a></li>
           <li><a href="{% url 'visit' %}">visit</a></li>
-          <li><a href="{% url 'book' %}"  class="book-btn">Book a Room</a></li>
+          <li><a href="{% url 'rooms' %}"  class="book-btn">Book a Room</a></li>
           {% if request.user.is_authenticated %}
             <li><a href="{% url 'logout_view' %}" class="log">Logout</a></li>
           {% else %}
