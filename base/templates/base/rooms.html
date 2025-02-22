@@ -98,19 +98,19 @@
                 <img src="{% static 'images/image9.jpg' %}" alt="Discount Offer">
                 <h3>Early Bird Special</h3>
                 <p>Book 30 days in advance and get a 15% discount on your stay. Don’t miss out on this limited-time offer!</p>
-                <a href="#" class="btn-secondary"></a>
+                <a href="#" class="btn-secondary">Book</a>
             </div>
             <div class="offer-card">
                 <img src="{% static 'images/image8.png' %}" alt="Weekend Getaway">
                 <h3>Weekend Getaway</h3>
                 <p>Enjoy a relaxing weekend at Glee Hotel with complimentary breakfast and spa access for ultimate relaxation.</p>
-                <a href="#" class="btn-secondary"></a>
+                <a href="#" class="btn-secondary">Book</a>
             </div>
             <div class="offer-card">
                 <img src="{% static 'images/image11.jpg' %}" alt="Family Package">
                 <h3>Family Vacation Package</h3>
                 <p>Book a family vacation with us and get a free kids’ play area access plus discounted rates on family suites!</p>
-                <a href="#" class="btn-secondary"></a>
+                <a href="#" class="btn-secondary">Book</a>
             </div>
         </div>
     </section>
@@ -133,10 +133,10 @@
                 <ul>
                     <li><a href="{% url 'amenities' %}">Amenities</a></li>
                     <li><a href="{% url 'rooms' %}">Rooms and Rates</a></li>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">Visit</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Book a Room</a></li>
+                    <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                    <li><a href="{% url 'visit' %}">visit</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    <li><a href="{% url 'rooms' %}">Book a Room</a></li>
                 </ul>
             </div>
     

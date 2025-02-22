@@ -62,7 +62,9 @@ form{
 }
 
 .rates-summary{
-    background-color: rgb(200, 200, 200);
+    background-color: aliceblue;
+    border: 1px solid rgb(0, 230, 118);
+    box-shadow: 0px 0px 7px lime;
     display: flex;
     flex-direction: column;
     padding: 40px;
@@ -70,6 +72,6 @@ form{
     border: none;
     gap: 20px;
     span{
-        color: rgb(0, 81, 255);
+        color: rgb(0, 153, 255);
     }
 }

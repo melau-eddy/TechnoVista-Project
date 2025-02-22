@@ -3,17 +3,18 @@
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/rates.css' %}">
     <div class="main-pay">
-        {% if messages %}
-            {% for message in messages %}
-                <div style="background-color: rgb(80, 180, 247);
-                    padding: 10px;
-                    border-radius: 10px;
-                    margin: 10px;">
-                {{ message }}
-                </div>
-            {% endfor %}
-        {% endif %}
+        
         <div class="payments">
+            {% if messages %}
+                {% for message in messages %}
+                    <div style="background-color: rgb(80, 180, 247);
+                        padding: 10px;
+                        border-radius: 10px;
+                        margin: 10px;">
+                    {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
             <h2>Make payments</h2>
             <form id="stkPushForm">
                 <div id="responseMessage" class="response"></div>

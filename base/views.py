@@ -9,6 +9,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from .models import Room, Reserve
+from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 
 from django.core.mail import send_mail
 
@@ -183,3 +184,8 @@ def contact(request):
         form = ContactForm()
 
     return render(request, 'base/contact.html', {'form': form})
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> de01117 (added a password reset functionality)
