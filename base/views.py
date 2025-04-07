@@ -184,8 +184,8 @@ def contact(request):
         form = ContactForm()
 
     return render(request, 'base/contact.html', {'form': form})
-<<<<<<< HEAD
-=======
 
 
->>>>>>> de01117 (added a password reset functionality)
+
+
+ de01117 (added a password reset functionality)
