@@ -1,0 +1,17 @@
+def get_mpesa_token():
+    consumer_key = "UCOLz4IHesReIjmyWswYALA5UWAtlPzKfLZk6H9TSAY0bjIg"
+    consumer_secret = "ACbpFsQMikEdGwBIwQX7EglxHsBj26GJJmde42pvMzP2NIaYyHGcp5RK79OuHAMQ"
+    api_URL = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
+    
+    try:
+        r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
+        r.raise_for_status()  # Raise an exception for 4XX/5XX status codes
+        response_data = r.json()
+        if 'access_token' in response_data:
+            return response_data['access_token']
+        else:
+            print(f"Error: {response_data.get('error', 'Unknown error')}")
+            return None
+    except requests.exceptions.RequestException as e:
+        print(f"Error occurred while fetching the token: {e}")
+        return None
