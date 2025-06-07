@@ -188,4 +188,3 @@ def contact(request):
 
 
 
- de01117 (added a password reset functionality)
