@@ -46,5 +46,5 @@
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/technovista-hotel-reservation.git
+git clone https://github.com/melau-eddy/TechnoVista-Project
 cd technovista-hotel-reservation
