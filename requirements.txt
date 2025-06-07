@@ -5,7 +5,9 @@ Django==5.2.2
 django-cors-headers==4.7.0
 django-jazzmin==3.0.1
 djangorestframework==3.16.0
+gunicorn==23.0.0
 idna==3.10
+packaging==25.0
 pillow==11.2.1
 requests==2.32.3
 sqlparse==0.5.3
